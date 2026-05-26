@@ -1,0 +1,24 @@
+structure:
+  src:
+    config:
+      broker.js: ""
+      db.js: ""
+    events:
+      schemas:
+        userCreated.event.js: ""
+        orderPlaced.event.js: ""
+    publishers:
+      notification.publisher.js: ""
+      inventory.publisher.js: ""
+    subscribers:
+      paymentProcessed.subscriber.js: ""
+      userRegistered.subscriber.js: ""
+    services:
+      worker.service.js: ""
+    index.js: ""
+  tests: {}
+  .gitignore: ""
+  .env: ""
+  Dockerfile: ""
+  .dockerignore: ""
+  README.md: ""

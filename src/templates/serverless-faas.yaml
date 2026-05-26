@@ -1,0 +1,23 @@
+structure:
+  src:
+    functions:
+      auth:
+        login:
+          handler.js: ""
+          schema.js: ""
+        register:
+          handler.js: ""
+          schema.js: ""
+      users:
+        getProfile:
+          handler.js: ""
+        updateProfile:
+          handler.js: ""
+    shared:
+      db.js: ""
+      response.js: ""
+      middleware.js: ""
+  serverless.yml: ""
+  .gitignore: ""
+  .env: ""
+  README.md: ""

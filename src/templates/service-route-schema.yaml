@@ -1,0 +1,23 @@
+structure:
+  src:
+    routes:
+      users.routes.js: ""
+      items.routes.js: ""
+    schemas:
+      userSignUp.schema.js: ""
+      userLogin.schema.js: ""
+      itemCreate.schema.js: ""
+    services:
+      user.service.js: ""
+      auth.service.js: ""
+      item.service.js: ""
+    plugins:
+      db.plugin.js: ""
+      auth.plugin.js: ""
+      logger.plugin.js: ""
+    app.js: ""
+    server.js: ""
+  tests: {}
+  .gitignore: ""
+  .env: ""
+  README.md: ""

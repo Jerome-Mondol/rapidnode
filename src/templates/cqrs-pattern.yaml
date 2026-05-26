@@ -1,0 +1,28 @@
+structure:
+  src:
+    config:
+      db.js: ""
+    domain:
+      entities: {}
+    features:
+      orders:
+        commands:
+          createOrder.command.js: ""
+          cancelOrder.command.js: ""
+          handlers:
+            createOrder.handler.js: ""
+        queries:
+          getOrderById.query.js: ""
+          listOrders.query.js: ""
+          handlers:
+            getOrderById.handler.js: ""
+        controllers:
+          orders.controller.js: ""
+        routes.js: ""
+    shared:
+      bus.js: ""
+    index.js: ""
+  tests: {}
+  .gitignore: ""
+  .env: ""
+  README.md: ""

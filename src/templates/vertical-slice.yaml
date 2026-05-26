@@ -1,0 +1,28 @@
+structure:
+  src:
+    config:
+      db.js: ""
+    features:
+      auth:
+        auth.controller.js: ""
+        auth.service.js: ""
+        auth.model.js: ""
+        auth.routes.js: ""
+        auth.validator.js: ""
+      posts:
+        post.controller.js: ""
+        post.service.js: ""
+        post.model.js: ""
+        post.routes.js: ""
+        post.validator.js: ""
+    shared:
+      middlewares:
+        errorHandler.js: ""
+        rateLimiter.js: ""
+      utils:
+        crypto.js: ""
+    index.js: ""
+  tests: {}
+  .gitignore: ""
+  .env: ""
+  README.md: ""

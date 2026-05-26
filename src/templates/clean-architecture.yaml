@@ -1,0 +1,33 @@
+structure:
+  src:
+    config:
+      database.js: ""
+      logger.js: ""
+      env.js: ""
+    modules:
+      users:
+        domain:
+          user.entity.js: ""
+          user.repository.interface.js: ""
+          user.errors.js: ""
+        application:
+          registerUser.usecase.js: ""
+          loginUser.usecase.js: ""
+        infrastructure:
+          user.model.js: ""
+          user.repository.impl.js: ""
+          user.controller.js: ""
+          user.routes.js: ""
+    shared:
+      middlewares:
+        auth.middleware.js: ""
+        error.middleware.js: ""
+      utils:
+        helpers.js: ""
+    index.js: ""
+  tests:
+    unit: {}
+    integration: {}
+  .gitignore: ""
+  .env: ""
+  README.md: ""
