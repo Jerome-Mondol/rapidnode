@@ -1,6 +1,6 @@
 {
   "name": "@jeroomew/rapidnode",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Instant cross-platform Node.js backend structure generator.",
   "bin": {
