@@ -15,35 +15,20 @@ Scaffold a production-ready Node.js backend project in seconds. RapidNode automa
 
 ## Installation
 
-```bash
-npm install -g @jeroomew/rapidnode
-```
-
-Or use directly with `npx`:
+Use with `npx`:
 
 ```bash
 npx @jeroomew/rapidnode <project-name>
 ```
 
-## Quick Start
+Or with `pnpm dlx`:
 
 ```bash
-rapidnode my-backend-app
+pnpm dlx @jeroomew/rapidnode <project-name>
 ```
 
-Follow the interactive prompts:
-
-1. **Step 1** - Specify production dependencies (e.g., `express axios mongoose`)
-2. **Step 2** - Specify development dependencies (e.g., `nodemon dotenv`)
-3. **Step 3** - Select a template to scaffold your project structure
 
 ## Usage
-
-### Basic Command
-
-```bash
-rapidnode <project-name>
-```
 
 **Example:**
 

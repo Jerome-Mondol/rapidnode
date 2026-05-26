@@ -25,7 +25,7 @@ export const askTemplate = async (allTemplates) => {
       name: 'selectedTemplate',
       message: '🧩 Select a backend architecture template',
       choices: allTemplates.map((template) => ({
-        name: template,
+        name: template.split('.')[0],
         value: template,
       }))
     }

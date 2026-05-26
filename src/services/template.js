@@ -19,7 +19,6 @@ export const readYamlFile = (templatePath) => {
 }
 
 export const checkIfFileIsYAML = (file) => {
-    console.log(file)
     return (file.selectedTemplate.endsWith('.yaml') || file.selectedTemplate.endsWith('.yml')) ? true : false;
 }
 
