@@ -1,7 +1,7 @@
 // src/services/prompter.js
 import inquirer from 'inquirer';
 
-export async function askProjectConfiguration() {
+export const askProjectConfiguration = async () => {
   const answers = await inquirer.prompt([
     {
       type: 'input',
@@ -16,4 +16,21 @@ export async function askProjectConfiguration() {
   ]);
 
   return answers;
+}
+
+export const askTemplate = async (allTemplates) => {
+  const answer = await inquirer.prompt([
+    {
+      type: 'select',
+      name: 'selectedTemplate',
+      message: '🧩 Select a backend architecture template',
+      choices: allTemplates.map((template) => ({
+        name: template,
+        value: template,
+      }))
+    }
+  ])
+
+  return answer;
+
 }
