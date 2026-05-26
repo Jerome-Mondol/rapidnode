@@ -18,6 +18,7 @@
   "author": "Jerome Mondol",
   "license": "MIT",
   "dependencies": {
-    "inquirer": "^14.0.0"
+    "inquirer": "^14.0.0",
+    "yaml": "^2.9.0"
   }
 }
