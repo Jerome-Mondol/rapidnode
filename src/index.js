@@ -1,7 +1,8 @@
 import process from 'process'
 import { createNewProject } from './services/disk.js';
 import { askProjectConfiguration, askTemplate } from './services/prompter.js';
-import { getAllTemplates } from './services/template-builder.js';
+import { getAllTemplates } from './services/template.js';
+import { buildTemplate } from './services/folder-builder.js';
 
 const targetDir = process.cwd();
 
@@ -23,6 +24,6 @@ export const runScaffolder = async (projectName) => {
     // ask to select template
     const templateChoice = await askTemplate(getAllTemplates());
 
+    buildTemplate(templateChoice);
 }
-
 
