@@ -12,19 +12,19 @@ export const createNewProject = (dirPath, dirName, prodDependenciesArr, devDepen
     process.chdir(projectPath)
 
     console.log('Initializing npm project...')
-    execSync('npm init -y', { stdio: 'inherit' })
+    execSync('npm init -y --quiet')
 
     const prodDeps = (prodDependenciesArr || []).filter((dep) => dep && dep.trim())
     const devDeps = (devDependenciesArr || []).filter((dep) => dep && dep.trim())
 
     if (prodDeps.length > 0) {
         console.log(`Installing production deps: ${prodDeps.join(' ')}`)
-        execSync(`npm install ${prodDeps.join(' ')}`, { stdio: 'inherit' })
+        execSync(`npm install ${prodDeps.join(' ')}`, { stdio: 'ignore' })
     }
 
     if (devDeps.length > 0) {
         console.log(`Installing dev deps: ${devDeps.join(' ')}`)
-        execSync(`npm install -D ${devDeps.join(' ')}`, { stdio: 'inherit' })
+        execSync(`npm install -D ${devDeps.join(' ')}`, { stdio: 'ignore' })
     }
 
     if (prodDeps.length === 0 && devDeps.length === 0) {
