@@ -35,9 +35,9 @@ pnpm dlx @jeroomew/rapidnode my-api
 
 ## Documentation
 
-- [Architecture & Templates](./docs/ARCHITECTURE.md) - Learn about templates, customization, and examples
-- [Contributing](./CONTRIBUTING.md) - How to contribute to RapidNode
-- [GitHub](https://github.com/jeroomew/rapidnode) - Source code
+- [Architecture & Templates](https://github.com/Jerome-Mondol/rapidnode/blob/main/docs/ARCHITECTURE.md) - Learn about templates, customization, and examples
+- [Contributing](https://github.com/Jerome-Mondol/rapidnode/blob/main/CONTRIBUTING.md) - How to contribute to RapidNode
+- [GitHub](https://github.com/Jerome-Mondol/rapidnode) - Source code
 
 ## License
 
