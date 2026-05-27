@@ -2,18 +2,22 @@
 
 import process from 'process';
 import { runScaffolder } from '../src/index.js';
+import { log } from '../src/services/logger.js';
 
 // Captures the folder name parameter (e.g., npx brikz my-app)
 const projectName = process.argv[2];
 
 if (!projectName) {
-  console.error('\x1b[31m%s\x1b[0m', '❌ Error: Please specify a project directory name.');
-  console.log('\nUsage:\n  npx brikz <project-name>\n');
+  log.error('Please specify a project directory name.');
+  log.newline();
+  log.info('Usage: npx rapidnode <project-name>');
+  log.newline();
   process.exit(1);
 }
 
-console.log('\x1b[36m%s\x1b[0m', '>>> Rapidnode starting...');
-console.log(`Project: ${projectName}`);
+log.info('Rapidnode starting...');
+log.info(`Project: ${projectName}`);
+log.newline();
 
 // Pass control to the file generator
 runScaffolder(projectName);

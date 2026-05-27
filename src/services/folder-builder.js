@@ -2,12 +2,13 @@ import fs from 'fs'
 import path from 'path'
 import process from 'process'
 import { checkIfFileIsYAML, generateTemplatePath, parseYAMLToJs, readYamlFile } from "./template.js";
+import { log } from './logger.js';
 
 export const buildTemplate = (template) => {        
     const { selectedTemplate } = template; 
     try {
         if(!checkIfFileIsYAML(template)) {
-            console.log("Invalid file type");
+            log.error('Invalid file type');
             return
         };
 
@@ -17,11 +18,12 @@ export const buildTemplate = (template) => {
         const targetDir = process.cwd();
 
         if (!parsedYamlContent || !parsedYamlContent.structure) {
-            console.log("Template is missing a 'structure' root node.");
+            log.error("Template is missing a 'structure' root node.");
             return
         }
 
-        console.log(`Building project structure from: ${selectedTemplate}`)
+        log.info(`Building project structure from: ${selectedTemplate}`);
+        log.newline();
 
         const createNodes = (currentFolder, structureData) => {
             if (Array.isArray(structureData)) {
@@ -49,10 +51,11 @@ export const buildTemplate = (template) => {
         }
 
         createNodes(targetDir, parsedYamlContent.structure)
-        console.log('Template build complete.')
+        log.newline();
+        log.success('Template build complete.');
         
     } catch (err) {
-        console.log("There was a error creating the project", err.message);
+        log.error(`There was an error creating the project: ${err.message}`);
     }
 
 }

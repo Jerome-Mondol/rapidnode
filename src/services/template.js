@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import YAML from 'yaml'; 
+import { log } from './logger.js';
 
 const templatesDirPath = path.join(import.meta.dirname, '..', 'templates');
 
@@ -27,5 +28,4 @@ export const getAllTemplates = () => {
 
     return templates;
 }
-
 

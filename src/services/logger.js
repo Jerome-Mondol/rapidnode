@@ -11,6 +11,7 @@ const colors = {
 
 export const log = {
   step: (step, total, message) => {
+    console.log();
     console.log(`${colors.magenta}${colors.bold}Step ${step}/${total}:${colors.reset} ${message}`);
   },
   success: (message) => {
@@ -24,5 +25,11 @@ export const log = {
   },
   warn: (message) => {
     console.log(`${colors.yellow}⚠${colors.reset} ${message}`);
+  },
+  debug: (message) => {
+    console.log(`${colors.cyan}🔍${colors.reset} ${message}`);
+  },
+  newline: () => {
+    console.log();
   },
 };
