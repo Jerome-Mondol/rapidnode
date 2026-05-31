@@ -27,6 +27,8 @@ export const createNewProject = (dirPath, dirName, prodDependenciesArr, devDepen
         log.debug(`Installing dev deps: ${devDeps.join(' ')}`);
         execSync(`npm install -D ${devDeps.join(' ')}`, { stdio: 'ignore' })
     }
+    
+
 
     if (prodDeps.length === 0 && devDeps.length === 0) {
         log.warn('No dependencies selected. Skipping install.');

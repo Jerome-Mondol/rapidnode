@@ -6,11 +6,14 @@
 
 ## Quick Start
 
-### Using npx
+
+### Use the following command to get started using npx.
 
 ```bash
 npx @jeroomew/rapidnode my-api
 ```
+
+### Use the following command to get started using pnpm
 
 ### Using pnpm dlx
 
@@ -27,11 +30,10 @@ pnpm dlx @jeroomew/rapidnode my-api
 
 ## Features
 
-- ⚡ One-command setup
-- 📦 Automatic dependency installation
-- 🎨 Multiple architecture templates
-- 🔄 Cross-platform support (Windows, macOS, Linux)
-- 🎯 Interactive CLI with helpful prompts
+- One-command setup
+- Automatic dependency and dev dependency installation
+- Multiple architecture templates
+- Cross-platform support
 
 ## Documentation
 
@@ -46,7 +48,7 @@ MIT © Jerome Mondol
 ### Microservice Template
 
 ```bash
-$ rapidnode payment-service
+$ npx @jeroomew/rapidnode payment-service
 ? Production packages: express
 ? Dev packages: jest
 ? Select template: microservice.yaml
@@ -61,14 +63,6 @@ Ensure you have npm 6+ and Node 14+:
 node --version
 npm --version
 ```
-
-## Contributing
-
-Contributions are welcome! Please submit a PR or open an issue.
-
-## License
-
-MIT © Jerome Mondol
 
 ## Author
 
