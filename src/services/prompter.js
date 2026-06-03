@@ -32,5 +32,16 @@ export const askTemplate = async (allTemplates) => {
   ])
 
   return answer;
+}
 
+export const askForGit = async () => {
+  const answer = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'gitSetup',
+      message: 'Would you like to initialize git? (Y/n): '
+    }
+  ])
+
+  return answer;
 }
