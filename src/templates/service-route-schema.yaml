@@ -18,6 +18,8 @@ structure:
     app.js: ""
     server.js: ""
   tests: {}
-  .gitignore: ""
+  .gitignore: |
+    node_modules/
+    .env
   .env: ""
   README.md: ""

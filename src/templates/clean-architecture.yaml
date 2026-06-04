@@ -28,6 +28,8 @@ structure:
   tests:
     unit: {}
     integration: {}
-  .gitignore: ""
+  .gitignore: |
+    node_modules/
+    .env
   .env: ""
   README.md: ""

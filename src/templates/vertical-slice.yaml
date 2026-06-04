@@ -23,6 +23,8 @@ structure:
         crypto.js: ""
     index.js: ""
   tests: {}
-  .gitignore: ""
+  .gitignore: |
+    node_modules/
+    .env
   .env: ""
   README.md: ""

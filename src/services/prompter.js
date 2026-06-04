@@ -45,3 +45,15 @@ export const askForGit = async () => {
 
   return answer;
 }
+
+export const askForGitRepo = async () => {
+  const answer = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'githubRepo',
+      message: 'Please enter your git repository link: '
+    }
+  ])
+
+  return answer;
+}

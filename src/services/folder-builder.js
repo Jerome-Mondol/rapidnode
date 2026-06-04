@@ -43,6 +43,9 @@ export const buildTemplate = (template) => {
                     createNodes(nextPath, value)
                 } else if (typeof value === 'object' && value !== null && Object.keys(value).length === 0) {
                     fs.mkdirSync(nextPath, { recursive: true })
+                } else if (typeof value === 'string') {
+                    fs.mkdirSync(path.dirname(nextPath), { recursive: true })
+                    fs.writeFileSync(nextPath, value, 'utf8')
                 } else {
                     fs.mkdirSync(path.dirname(nextPath), { recursive: true })
                     fs.writeFileSync(nextPath, '', 'utf8')

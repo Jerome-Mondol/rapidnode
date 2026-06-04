@@ -18,6 +18,8 @@ structure:
       response.js: ""
       middleware.js: ""
   serverless.yml: ""
-  .gitignore: ""
+  .gitignore: |
+    node_modules/
+    .env
   .env: ""
   README.md: ""

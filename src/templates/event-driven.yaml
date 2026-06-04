@@ -17,7 +17,9 @@ structure:
       worker.service.js: ""
     index.js: ""
   tests: {}
-  .gitignore: ""
+  .gitignore: |
+    node_modules/
+    .env
   .env: ""
   Dockerfile: ""
   .dockerignore: ""
