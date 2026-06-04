@@ -17,7 +17,14 @@ npm --version
 RapidNode uses the following packages:
 
 - **inquirer** - Interactive command-line prompts
-- **yaml** - YAML parsing and stringification
+- **yaml** - YAML parsing
+
+## How Scaffolding Works
+
+1. Creates a folder for the project and runs `npm init -y`
+2. Installs production and dev dependencies if provided
+3. Builds a project structure from a YAML template
+4. Optional Git setup (init, commit, branch, remote, push)
 
 ## Understanding Templates
 
@@ -30,12 +37,13 @@ structure:
   src:
     config:
       db.js: ""
-    controllers:
-      user.controller.js: ""
     routes:
       user.routes.js: ""
     index.js: ""
   tests: {}
+  .gitignore: |
+    node_modules/
+    .env
   .env: ""
   README.md: ""
 ```
@@ -43,165 +51,132 @@ structure:
 ### Key Rules
 
 - **Nested objects** = folders (with a trailing `{}` = empty folder)
-- **String values** = files (created empty)
-- **Arrays** = list of files to create
+- **String values** = file content written to disk
+- **Arrays** = list of files to create (empty files)
 
 ## Available Templates
 
 ### 1. Clean Architecture
 
-A layered architecture with clear separation of concerns:
-
 ```
 src/
-  entities/
-  use_cases/
-  interface_adapters/
-  frameworks/
+  config/
+    database.js
+    logger.js
+    env.js
+  modules/
+    users/
+      domain/
+      application/
+      infrastructure/
+  shared/
+    middlewares/
+    utils/
+  index.js
+tests/
+  unit/
+  integration/
 ```
 
-**Best for:** Large-scale applications with complex business logic
+**Best for:** Layered backends with clear domain boundaries
 
 ### 2. CQRS Pattern
 
-Command Query Responsibility Segregation - separates read and write operations:
-
 ```
 src/
-  commands/
-  queries/
-  events/
-  handlers/
+  config/
+    db.js
+  domain/
+    entities/
+  features/
+    orders/
+      commands/
+      queries/
+      handlers/
+      controllers/
+      routes.js
+  shared/
+    bus.js
+  index.js
 ```
 
-**Best for:** Event-driven systems, complex workflows
+**Best for:** Command/query separation with explicit handlers
 
 ### 3. Event-Driven
 
-Publish-subscribe architecture for real-time systems:
-
 ```
 src/
+  config/
+    broker.js
+    db.js
   events/
+    schemas/
+  publishers/
   subscribers/
   services/
-  handlers/
+  index.js
+Dockerfile
+.dockerignore
 ```
 
-**Best for:** Real-time apps, microservices, notification systems
+**Best for:** Pub/sub systems and async workflows
 
 ### 4. Serverless/FaaS
-
-Optimized for AWS Lambda, Google Cloud Functions, etc.:
 
 ```
 src/
   functions/
-  middleware/
-  utils/
-  config/
-```
-
-**Best for:** Serverless deployments, microservices
-
-### 5. Vertical Slice
-
-Feature-based organization where each feature contains all layers:
-
-```
-src/
-  features/
+    auth/
+      login/
+      register/
     users/
-      handlers/
-      services/
-      models/
-    products/
-      handlers/
-      services/
-      models/
+      getProfile/
+      updateProfile/
+  shared/
+    db.js
+    response.js
+    middleware.js
+serverless.yml
 ```
 
-**Best for:** Medium-to-large teams, feature-focused development
+**Best for:** Serverless deployments and function-based APIs
 
-### 6. Service Route Schema
-
-RESTful API structure with clear service routing:
+### 5. Service Route Schema
 
 ```
 src/
-  services/
   routes/
-  middleware/
-  models/
+  schemas/
+  services/
+  plugins/
+  app.js
+  server.js
 ```
 
-**Best for:** REST APIs, traditional backend services
+**Best for:** REST APIs with explicit routing and schemas
+
+### 6. Vertical Slice
+
+```
+src/
+  config/
+    db.js
+  features/
+    auth/
+    posts/
+  shared/
+    middlewares/
+    utils/
+  index.js
+```
+
+**Best for:** Feature-driven teams and modular delivery
 
 ## Creating Custom Templates
 
 1. Create a new YAML file in `src/templates/`
 2. Define your structure following the format above
 3. Run the CLI and select your custom template
-
-### Example Custom Template: Microservice
-
-Create `src/templates/microservice.yaml`:
-
-```yaml
-structure:
-  src:
-    handlers:
-      handler.js: ""
-    schemas:
-      validation.js: ""
-    middleware:
-      auth.js: ""
-    app.js: ""
-  dist: {}
-  .dockerignore: ""
-  Dockerfile: ""
-```
-
-Then use it:
-
-```bash
-rapidnode your-service
-# Select: microservice
-```
-
-## Examples
-
-### Express + MongoDB Setup
-
-```bash
-$ rapidnode blog-api
-? Production packages: express mongoose cors dotenv
-? Dev packages: nodemon
-? Select template: default-template
-```
-
-**Creates:**
-
-- `src/` with MVC structure
-- `package.json` with Express & Mongoose
-- `node_modules/` with all dependencies installed
-- Ready-to-code backend!
-
-### Microservice with Docker
-
-```bash
-$ rapidnode payment-service
-? Production packages: express
-? Dev packages: jest
-? Select template: microservice
-```
-
-**Creates:**
-
-- Microservice-optimized structure
-- Dockerfile ready for containerization
-- Test setup with Jest
-- Validation schemas
 
 ## Best Practices
 
